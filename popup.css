@@ -1,0 +1,38 @@
+html, body {
+    min-width: 450px;
+    background-color: white;
+}
+
+textarea {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+fieldset {
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+input[type="number"] {
+    width: 40px;
+}
+
+.field {
+    display: inline-block;
+    width: 200px;
+}
+
+#qrcode {
+    padding: 5px;
+    background-color: #CCCCCC;
+}
+
+#stat {
+    white-space: pre;
+    font-size: small;
+}
+
+.Error {
+    color: red;
+    font-weight: bold;
+}

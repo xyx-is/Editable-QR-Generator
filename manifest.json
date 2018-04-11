@@ -1,0 +1,34 @@
+{
+  "manifest_version": 2,
+  "name": "Editable QR Generator",
+  "version": "0.0.1",
+  "description": "Editable and customizable offline QR Code generator.",
+  "homepage_url": "https://github.com/xyx-is/Editable-QR-Generator",
+  "icons": {
+    "16": "icons/icon16.png",
+    "24": "icons/icon24.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "64": "icons/icon64.png",
+    "96": "icons/icon96.png"
+  },
+
+  "permissions": [
+    "activeTab"
+  ],
+
+  "browser_action": {
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "24": "icons/icon24.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "64": "icons/icon64.png",
+      "96": "icons/icon96.png"
+    },
+    "default_title": "Editable QR Generator",
+    "default_popup": "popup.html",
+    "browser_style": true
+  }
+
+}
