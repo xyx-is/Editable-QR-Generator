@@ -189,9 +189,10 @@
 
     /**
      * Event listener for inserting text to inputText textarea.
+     * @param {Event} event event
      * @this {HTMLAnchorElement} clicked <a> element which must have data-insert-value attribute
      */
-    function insertText() {
+    function insertText(event) {
         var insertTextLink = this;
         var insertedText = insertTextLink.getAttribute('data-insert-value');
 
@@ -199,12 +200,27 @@
         inputTextarea.value += insertedText;
 
         generateQr();
+
+        event.preventDefault();
+        return false;
     }
 
     /**
-     * Event listener for opening QR Code in new tab.
+     * Event listener for preventing default event
+     * @param {Event} event event
      */
-    function openQr() {
+    function preventDefaultEvent(event) {
+        event.preventDefault();
+        return false;
+    }
+
+    /* ---- Open QR Code in new tab event ---- */
+
+    /**
+     * Event listener for opening QR Code in new tab.
+     * @param {Event} event event
+     */
+    function openQr(event) {
         var canvas = document.querySelector('canvas#qrcode');
 
         var newWindow = window.open();
@@ -241,6 +257,13 @@
             var elements = inputForm.querySelectorAll('.insert-text');
             for (var i = 0; i < elements.length; i++) {
                 elements[i].addEventListener(event, insertText);
+            }
+        });
+
+        ['mousedown'].forEach(function (event) {
+            var elements = inputForm.querySelectorAll('.insert-text');
+            for (var i = 0; i < elements.length; i++) {
+                elements[i].addEventListener(event, preventDefaultEvent);
             }
         });
 
