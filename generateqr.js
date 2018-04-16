@@ -197,7 +197,14 @@
         var insertedText = insertTextLink.getAttribute('data-insert-value');
 
         var inputTextarea = document.querySelector('form#input [name=inputText]');
-        inputTextarea.value += insertedText;
+        var inputText = inputTextarea.value;
+        var inputTextBefore = inputText.slice(0, inputTextarea.selectionStart);
+        var inputTextAfter = inputText.slice(inputTextarea.selectionEnd);
+        inputTextarea.value = inputTextBefore + insertedText + inputTextAfter;
+
+        var insertedEnd = inputTextBefore.length + insertedText.length;
+        inputTextarea.focus();
+        inputTextarea.setSelectionRange(insertedEnd, insertedEnd);
 
         generateQr();
 
