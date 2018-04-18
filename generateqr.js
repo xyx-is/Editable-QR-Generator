@@ -1,7 +1,7 @@
 /**
  * @fileoverview Create QR Code from input values.
  */
-(function (qrcodegen) {
+(function (qrcodegen, i18nUtil) {
     'use strict';
 
     /* ---- Util functions ---- */
@@ -137,22 +137,24 @@
         var cellSize = getCellSizeOfVersion(qr.version);
 
         var versionSpan = document.createElement('span');
-        versionSpan.innerText = 'Version: ' + qr.version + ', ';
-        versionSpan.title = '' + cellSize + 'cells';
+        versionSpan.innerText = i18nUtil.i18n.getMessage('statsVersionLabel', [qr.version]);
+        versionSpan.title = i18nUtil.i18n.getMessage('statsVersionCellSizeTitle', [cellSize]);
         statDiv.appendChild(versionSpan);
 
+        statDiv.appendChild(document.createTextNode(', '));
+
         var sizeSpan = document.createElement('span');
-        sizeSpan.innerText = 'Size: ' + cellSize + ' cells = ' + canvas.width + ' px';
-        sizeSpan.title = '(' + cellSize + ' cells + 2 * ' + input.margin + ' margins cells) * ' + input.scale + ' px/cell';
+        sizeSpan.innerText = i18nUtil.i18n.getMessage('statsSizeLabel', [cellSize, canvas.width]);
+        sizeSpan.title = i18nUtil.i18n.getMessage('statsSizeTitle', [cellSize, input.margin, input.scale]);
         statDiv.appendChild(sizeSpan);
 
         statDiv.appendChild(document.createElement('br'));
 
         var miscSpan = document.createElement('span');
         miscSpan.innerText =
-            'Mask: Pattern ' + qr.mask + ', ' +
-            'Ecc: ' + convQrEccToStr(qr.errorCorrectionLevel) + ', ' +
-            'Mode: ' + arrayToStr(segs.map(function (seg) { return convQrModeToStr(seg.mode); }));
+            i18nUtil.i18n.getMessage('statsMaskLabel', [qr.mask]) + ', ' +
+            i18nUtil.i18n.getMessage('statsEccLabel', [convQrEccToStr(qr.errorCorrectionLevel)]) + ', ' +
+            i18nUtil.i18n.getMessage('statsModesLabel', [arrayToStr(segs.map(function (seg) { return convQrModeToStr(seg.mode); }))]);
         statDiv.appendChild(miscSpan);
     }
 
@@ -179,7 +181,7 @@
             canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
 
             // set statDiv the error message
-            statDiv.innerText = 'Error: ' + e;
+            statDiv.innerText = i18nUtil.i18n.getMessage('errorDescriptionLabel', [e]);
             statDiv.classList.add('Error');
         }
 
@@ -190,7 +192,8 @@
     /**
      * Event listener for inserting text to inputText textarea.
      * @param {Event} event event
-     * @this {HTMLAnchorElement} clicked <a> element which must have data-insert-value attribute
+     * @this {HTMLAnchorElement}
+     * @return {boolean} return false
      */
     function insertText(event) {
         var insertTextLink = this;
@@ -215,6 +218,7 @@
     /**
      * Event listener for preventing default event
      * @param {Event} event event
+     * @return {boolean} event event
      */
     function preventDefaultEvent(event) {
         event.preventDefault();
@@ -239,6 +243,8 @@
     /* ---- Set events ---- */
 
     window.addEventListener('load', function () {
+        i18nUtil.substituteAllElementsAndTextNodes(document);
+
         var inputForm = document.querySelector('form#input');
 
         // generateQr
@@ -281,4 +287,4 @@
         generateQr();
     });
 
-})(qrcodegen);
+})(qrcodegen, i18nUtil);

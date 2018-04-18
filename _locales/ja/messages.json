@@ -1,0 +1,186 @@
+{
+  "extensionDescription": {
+    "message": "好きな文字列からQRコードをオフラインで生成します。",
+    "description": "ブラウザー拡張の説明"
+  },
+
+  "popupHtmlFormInputTextPlaceholder": {
+    "message": "ここにテキストを入力してください",
+    "description": "popup.html form textarea[name=inputText]'s placeholder"
+  },
+  "popupHtmlFormInsertTextLabelTitle": {
+    "message": "上のテキストエリアにページのURLやタイトルを挿入します。",
+    "description": "popup.html form Insert text label's title"
+  },
+  "popupHtmlFormInsertTextLabel": {
+    "message": "テキスト挿入:",
+    "description": "popup.html form Insert text label's label"
+  },
+  "popupHtmlFormInsertTextPageUrlLabel": {
+    "message": "ページURL",
+    "description": "popup.html form .insert-text[data-insert-type=url]'s label"
+  },
+  "popupHtmlFormInsertTextPageTitleLabel": {
+    "message": "ページタイトル",
+    "description": "popup.html form .insert-text[data-insert-type=title]'s label"
+  },
+  "popupHtmlFormEccLabel": {
+    "message": "誤り訂正レベル:",
+    "description": "popup.html form Ecc Label"
+  },
+  "popupHtmlFormEccAutoLabelTitle": {
+    "message": "生成されるQRコードのサイズが変わらないとき、自動的に誤り訂正レベルを引き上げます。",
+    "description": "popup.html form input[name=eccAuto]'s label's title"
+  },
+  "popupHtmlFormEccAutoLabel": {
+    "message": "自動",
+    "description": "popup.html form input[name=eccAuto]'s label"
+  },
+
+  "popupHtmlFormMarginTitle": {
+    "message": "余白のセルの数(デフォルト: 4)",
+    "description": "popup.html form input[name=margin]'s label's title"
+  },
+  "popupHtmlFormMarginLabel": {
+    "message": "余白:",
+    "description": "popup.html form input[name=margin]'s label"
+  },
+  "popupHtmlFormMarginLabelUnit": {
+    "message": "セル",
+    "description": "popup.html form input[name=margin]'s label's unit"
+  },
+  "popupHtmlFormScaleTitle": {
+    "message": "セルの大きさ",
+    "description": "popup.html form input[name=scale]'s label's title"
+  },
+  "popupHtmlFormScaleLabel": {
+    "message": "セルの大きさ:",
+    "description": "popup.html form input[name=scale]'s label"
+  },
+  "popupHtmlFormScaleLabelUnit": {
+    "message": "px",
+    "description": "popup.html form input[name=scale]'s label"
+  },
+  "popupHtmlFormMinVersionTitle": {
+    "message": "バージョンの大きさをここで指定した大きさ以上にします(40以下)。",
+    "description": "popup.html form input[name=minVersion]'s label's title"
+  },
+  "popupHtmlFormMinVersionLabel": {
+    "message": "最小バージョンサイズ:",
+    "description": "popup.html form input[name=minVersion]'s label"
+  },
+  "popupHtmlFormMaskTitle": {
+    "message": "マスクのパターン",
+    "description": "popup.html form input[name=mask]'s label's title"
+  },
+  "popupHtmlFormMaskLabel": {
+    "message": "マスク:",
+    "description": "popup.html form input[name=mask]'s label"
+  },
+  "popupHtmlFormMaskOptionAutoLabel": {
+    "message": "自動",
+    "description": "popup.html form input[name=mask] option[value=-1]'s label"
+  },
+  "popupHtmlFormMaskOptionPattenPrefix": {
+    "message": "パターン",
+    "description": "popup.html form input[name=mask] option's pattern prefix"
+  },
+  "popupHtmlOpenQrCodeLinkTitle": {
+    "message": "クリックして新しいタブでQRコードの画像を開きます。",
+    "description": "popup.html a.open-qrcode's title"
+  },
+
+  "errorDescriptionLabel": {
+    "message": "エラー: $error$",
+    "description": "エラーの説明のラベル",
+    "placeholders": {
+      "error": {
+        "content": "$1",
+        "example": "Invalid value"
+      }
+    }
+  },
+
+  "statsVersionLabel": {
+    "message": "バージョン: $version$",
+    "description": "統計情報のバージョンのラベル",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "statsVersionCellSizeTitle": {
+    "message": "$cellSize$ セル",
+    "description": "統計情報のバージョンのツールチップ",
+    "placeholders": {
+      "cellSize": {
+        "content": "$1",
+        "example": "25"
+      }
+    }
+  },
+  "statsSizeLabel": {
+    "message": "サイズ: $cellSize$ セル = $pxSize$ px",
+    "description": "統計情報のサイズのラベル",
+    "placeholders": {
+      "cellSize": {
+        "content": "$1",
+        "example": "25"
+      },
+      "pxSize": {
+        "content": "$2",
+        "example": "132"
+      }
+    }
+  },
+  "statsSizeTitle": {
+    "message": "($cellSize$ セル + 2 * $margin$ 余白セル) * $scale$ px/セル",
+    "description": "統計情報のサイズのツールチップ",
+    "placeholders": {
+      "cellSize": {
+        "content": "$1",
+        "example": "25"
+      },
+      "margin": {
+        "content": "$2",
+        "example": "4"
+      },
+      "scale": {
+        "content": "$3",
+        "example": "4"
+      }
+    }
+  },
+  "statsMaskLabel": {
+    "message": "マスク: パターン $mask$",
+    "description": "統計情報のマスクパターンのラベル",
+    "placeholders": {
+      "mask": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "statsEccLabel": {
+    "message": "誤り訂正: $ecc$",
+    "description": "統計情報の誤り訂正レベルのラベル",
+    "placeholders": {
+      "ecc": {
+        "content": "$1",
+        "example": "M"
+      }
+    }
+  },
+  "statsModesLabel": {
+    "message": "モード: $modes$",
+    "description": "統計情報のモードのラベル",
+    "placeholders": {
+      "modes": {
+        "content": "$1",
+        "example": "[BYTE]"
+      }
+    }
+  }
+}

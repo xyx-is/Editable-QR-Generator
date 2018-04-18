@@ -1,0 +1,186 @@
+{
+  "extensionDescription": {
+    "message": "Editable and configurable offline QR Code generator.",
+    "description": "Extension description"
+  },
+
+  "popupHtmlFormInputTextPlaceholder": {
+    "message": "Input text here",
+    "description": "popup.html form textarea[name=inputText]'s placeholder"
+  },
+  "popupHtmlFormInsertTextLabelTitle": {
+    "message": "Insert page url or title to textarea above",
+    "description": "popup.html form Insert text label's title"
+  },
+  "popupHtmlFormInsertTextLabel": {
+    "message": "Insert text:",
+    "description": "popup.html form Insert text label's label"
+  },
+  "popupHtmlFormInsertTextPageUrlLabel": {
+    "message": "Page URL",
+    "description": "popup.html form .insert-text[data-insert-type=url]'s label"
+  },
+  "popupHtmlFormInsertTextPageTitleLabel": {
+    "message": "Page Title",
+    "description": "popup.html form .insert-text[data-insert-type=title]'s label"
+  },
+  "popupHtmlFormEccLabel": {
+    "message": "Error correction:",
+    "description": "popup.html form Ecc Label"
+  },
+  "popupHtmlFormEccAutoLabelTitle": {
+    "message": "Automatically boost error correction level unless it increases QR Code size",
+    "description": "popup.html form input[name=eccAuto]'s label's title"
+  },
+  "popupHtmlFormEccAutoLabel": {
+    "message": "Auto",
+    "description": "popup.html form input[name=eccAuto]'s label"
+  },
+
+  "popupHtmlFormMarginTitle": {
+    "message": "Margin size in cells (default is 4)",
+    "description": "popup.html form input[name=margin]'s label's title"
+  },
+  "popupHtmlFormMarginLabel": {
+    "message": "Margin:",
+    "description": "popup.html form input[name=margin]'s label"
+  },
+  "popupHtmlFormMarginLabelUnit": {
+    "message": "cells",
+    "description": "popup.html form input[name=margin]'s label's unit"
+  },
+  "popupHtmlFormScaleTitle": {
+    "message": "Cell size in pixels",
+    "description": "popup.html form input[name=scale]'s label's title"
+  },
+  "popupHtmlFormScaleLabel": {
+    "message": "Cell size:",
+    "description": "popup.html form input[name=scale]'s label"
+  },
+  "popupHtmlFormScaleLabelUnit": {
+    "message": "px",
+    "description": "popup.html form input[name=scale]'s label"
+  },
+  "popupHtmlFormMinVersionTitle": {
+    "message": "Minimum version size (up to 40)",
+    "description": "popup.html form input[name=minVersion]'s label's title"
+  },
+  "popupHtmlFormMinVersionLabel": {
+    "message": "Min version:",
+    "description": "popup.html form input[name=minVersion]'s label"
+  },
+  "popupHtmlFormMaskTitle": {
+    "message": "Mask pattern",
+    "description": "popup.html form input[name=mask]'s label's title"
+  },
+  "popupHtmlFormMaskLabel": {
+    "message": "Mask:",
+    "description": "popup.html form input[name=mask]'s label"
+  },
+  "popupHtmlFormMaskOptionAutoLabel": {
+    "message": "Auto",
+    "description": "popup.html form input[name=mask] option[value=-1]'s label"
+  },
+  "popupHtmlFormMaskOptionPattenPrefix": {
+    "message": "Pattern",
+    "description": "popup.html form input[name=mask] option's pattern prefix"
+  },
+  "popupHtmlOpenQrCodeLinkTitle": {
+    "message": "Click to open the QR code image in new tab",
+    "description": "popup.html a.open-qrcode's title"
+  },
+
+  "errorDescriptionLabel": {
+    "message": "Error: $error$",
+    "description": "Label of error",
+    "placeholders": {
+      "error": {
+        "content": "$1",
+        "example": "Invalid value"
+      }
+    }
+  },
+
+  "statsVersionLabel": {
+    "message": "Version: $version$",
+    "description": "Label description for the version in the statistics div",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "statsVersionCellSizeTitle": {
+    "message": "$cellSize$ cells",
+    "description": "Title description for the version in the statistics div",
+    "placeholders": {
+      "cellSize": {
+        "content": "$1",
+        "example": "25"
+      }
+    }
+  },
+  "statsSizeLabel": {
+    "message": "Size: $cellSize$ cells = $pxSize$ px",
+    "description": "Label description for the size in the statistics div",
+    "placeholders": {
+      "cellSize": {
+        "content": "$1",
+        "example": "25"
+      },
+      "pxSize": {
+        "content": "$2",
+        "example": "132"
+      }
+    }
+  },
+  "statsSizeTitle": {
+    "message": "($cellSize$ cells + 2 * $margin$ margin cells) * $scale$ px/cell",
+    "description": "Title description for the size in the statistics div",
+    "placeholders": {
+      "cellSize": {
+        "content": "$1",
+        "example": "25"
+      },
+      "margin": {
+        "content": "$2",
+        "example": "4"
+      },
+      "scale": {
+        "content": "$3",
+        "example": "4"
+      }
+    }
+  },
+  "statsMaskLabel": {
+    "message": "Mask: Pattern $mask$",
+    "description": "Label description for the mask in the statistics div",
+    "placeholders": {
+      "mask": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "statsEccLabel": {
+    "message": "Ecc: $ecc$",
+    "description": "Label description for the ecc in the statistics div",
+    "placeholders": {
+      "ecc": {
+        "content": "$1",
+        "example": "M"
+      }
+    }
+  },
+  "statsModesLabel": {
+    "message": "Modes: $modes$",
+    "description": "Label description for the modes in the statistics div",
+    "placeholders": {
+      "modes": {
+        "content": "$1",
+        "example": "[BYTE]"
+      }
+    }
+  }
+}

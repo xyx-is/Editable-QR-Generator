@@ -1,11 +1,14 @@
 # Editable QR Generator
 Editable and configurable offline QR Code generator Web extension addon.
 
+[<img border="0" align="right" src="https://addons.cdn.mozilla.net/static/img/addons-buttons/AMO-button_2.png">](https://addons.mozilla.org/firefox/addon/editable-qr-generator/)
+
 ## Features
 - Editable: can generate QR Code from any text.
 - Configurable: can configure error correction level, size, and mask pattern etc.
 - Offline: QR Code is generated offline.
 - Minimal permissions: only requires "activeTab" permissions to get the URL and the title of the current page.
+- Open Source: Source code is hosted at https://github.com/xyx-is/Editable-QR-Generator
 - Support UTF-8 encoding. (Thanks to Project Nayuki)
 
 ## Usage

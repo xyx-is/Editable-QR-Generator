@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Editable QR Generator",
   "version": "0.1.0",
-  "description": "Editable and configurable offline QR Code generator.",
+  "description": "__MSG_extensionDescription__",
   "homepage_url": "https://github.com/xyx-is/Editable-QR-Generator",
   "icons": {
     "16": "icons/icon16.png",
@@ -12,6 +12,7 @@
     "64": "icons/icon64.png",
     "96": "icons/icon96.png"
   },
+  "default_locale": "en",
 
   "permissions": [
     "activeTab"

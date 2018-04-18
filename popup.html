@@ -1,61 +1,61 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" media="all" href="popup.css" />
+    <link rel="stylesheet" href="popup.css" />
 </head>
 
 <body>
     <form id="input">
         <div>
             <!-- Input text -->
-            <textarea name="inputText" placeholder="Input text here"></textarea>
+            <textarea name="inputText" placeholder="__MSG_popupHtmlFormInputTextPlaceholder__"></textarea>
         </div>
         <div>
             <!-- Insert text -->
-            <span title="Insert page url or title to textarea above">Insert text:</span>
-            <a class="insert-text" href="#" data-insert-type="url" data-insert-value="">Page URL</a> |
-            <a class="insert-text" href="#" data-insert-type="title" data-insert-value="">Page Title</a>
+            <span title="__MSG_popupHtmlFormInsertTextLabelTitle__">__MSG_popupHtmlFormInsertTextLabel__</span>
+            <a class="insert-text" href="#" data-insert-type="url" data-insert-value="">__MSG_popupHtmlFormInsertTextPageUrlLabel__</a> |
+            <a class="insert-text" href="#" data-insert-type="title" data-insert-value="">__MSG_popupHtmlFormInsertTextPageTitleLabel__</a>
         </div>
         <fieldset>
             <!-- <legend>QR Code Settings</legend> -->
             <div>
-                Error correction:
-                <label title="Automatically boost error correction level unless it increases QR Code size">
-                    <input name="eccAuto" type="checkbox" value="true" checked="true" />Auto
+                __MSG_popupHtmlFormEccLabel__
+                <label title="__MSG_popupHtmlFormEccAutoLabelTitle__">
+                    <input name="eccAuto" type="checkbox" value="true" checked="checked" />__MSG_popupHtmlFormEccAutoLabel__
                 </label>
                 |
-                <label title="Low"><input name="ecc" type="radio" value="L" checked="true" />L</label>
+                <label title="Low"><input name="ecc" type="radio" value="L" checked="checked" />L</label>
                 <label title="Medium"><input name="ecc" type="radio" value="M" />M</label>
                 <label title="Quartile"><input name="ecc" type="radio" value="Q" />Q</label>
                 <label title="High"><input name="ecc" type="radio" value="H" />H</label>
             </div>
             <div>
-                <div class="field"><label title="Margin size in cells (default is 4)">Margin:<input name="margin" type="number" value="4" min="0" /> cells</label></div>
-                <div class="field"><label title="Cell size in pixels">Cell size:<input name="scale" type="number" value="4" min="1" /> px</label></div>
+                <div class="field"><label title="__MSG_popupHtmlFormMarginTitle__">__MSG_popupHtmlFormMarginLabel__<input name="margin" type="number" value="4" min="0" /> __MSG_popupHtmlFormMarginLabelUnit__</label></div>
+                <div class="field"><label title="__MSG_popupHtmlFormScaleTitle__">__MSG_popupHtmlFormScaleLabel__<input name="scale" type="number" value="4" min="1" /> __MSG_popupHtmlFormScaleLabelUnit__</label></div>
             </div>
             <div>
-                <div class="field"><label title="Minimum version size (up to 40)">Min version:<input name="minVersion" type="number" value="1" min="1" max="40" /></label></div>
+                <div class="field"><label title="__MSG_popupHtmlFormMinVersionTitle__">__MSG_popupHtmlFormMinVersionLabel__<input name="minVersion" type="number" value="1" min="1" max="40" /></label></div>
                 <div class="field">
-                    <label title="Mask pattern">
-                        Mask:
+                    <label title="__MSG_popupHtmlFormMaskTitle__">
+                        __MSG_popupHtmlFormMaskLabel__
                         <select name="mask">
-                            <option value="-1">Auto</option>
-                            <option value="0">Pattern 0</option>
-                            <option value="1">Pattern 1</option>
-                            <option value="2">Pattern 2</option>
-                            <option value="3">Pattern 3</option>
-                            <option value="4">Pattern 4</option>
-                            <option value="5">Pattern 5</option>
-                            <option value="6">Pattern 6</option>
-                            <option value="7">Pattern 7</option>
+                            <option value="-1">__MSG_popupHtmlFormMaskOptionAutoLabel__</option>
+                            <option value="0">__MSG_popupHtmlFormMaskOptionPattenPrefix__ 0</option>
+                            <option value="1">__MSG_popupHtmlFormMaskOptionPattenPrefix__ 1</option>
+                            <option value="2">__MSG_popupHtmlFormMaskOptionPattenPrefix__ 2</option>
+                            <option value="3">__MSG_popupHtmlFormMaskOptionPattenPrefix__ 3</option>
+                            <option value="4">__MSG_popupHtmlFormMaskOptionPattenPrefix__ 4</option>
+                            <option value="5">__MSG_popupHtmlFormMaskOptionPattenPrefix__ 5</option>
+                            <option value="6">__MSG_popupHtmlFormMaskOptionPattenPrefix__ 6</option>
+                            <option value="7">__MSG_popupHtmlFormMaskOptionPattenPrefix__ 7</option>
                         </select>
                     </label>
                 </div>
             </div>
         </fieldset>
     </form>
-    <a class="open-qrcode" href="#" title="Click to open in new tab">
+    <a class="open-qrcode" href="#" title="__MSG_popupHtmlOpenQrCodeLinkTitle__">
         <!-- Canvas to draw QR Code -->
         <canvas id="qrcode"></canvas>
     </a>
@@ -63,6 +63,7 @@
     <div id="stat"></div>
 
     <script src="qrcodegen.js"></script>
+    <script src="i18n_util.js"></script>
     <script src="generateqr.js"></script>
     <script src="popup.js"></script>
 </body>
