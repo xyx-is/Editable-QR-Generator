@@ -28,6 +28,9 @@ You can save the QR Code in the new tab.
 
 Also, if you are using Firefox, you can directly save the QR Code image by right clicking the the QR Code canvas.
 
+### Open popup in new tab
+If you feel it is difficult to edit in the popup, click the 'Open this page in new tab' to open the popup in a new tab.
+
 ## License
 MIT License. See [LICENSE](LICENSE) file for the license of this project itself. Third-party libraries are listed below.
 
