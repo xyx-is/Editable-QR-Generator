@@ -1,7 +1,12 @@
 /**
  * @fileoverview set current page URL and title to inserting text links
  */
-(function () {
+
+/**
+ * Set text insert links' attributes.
+ * @param {function()} callback callback function executed after setup
+ */
+var setTextInsertValue = (function (callback) {
     'use strict';
 
     function setInsertValue(tabs) {
@@ -18,6 +23,8 @@
         var insertTitleTextLink = document.querySelector('.insert-text[data-insert-type=title]');
         insertTitleTextLink.setAttribute('data-insert-value', pageTitle);
         insertTitleTextLink.setAttribute('title', pageTitle);
+
+        callback();
     }
 
     if (typeof (browser) !== 'undefined') {
@@ -25,7 +32,7 @@
     } else if (typeof (chrome) !== 'undefined') {
         chrome.tabs.query({ currentWindow: true, active: true }, setInsertValue);
     } else {
-        return false;
+        // do nothing
     }
 
-})();
+});

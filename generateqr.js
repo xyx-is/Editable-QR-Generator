@@ -1,7 +1,7 @@
 /**
  * @fileoverview Create QR Code from input values.
  */
-(function (qrcodegen, i18nUtil) {
+(function (qrcodegen, i18nUtil, setTextInsertValue) {
     'use strict';
 
     /* ---- Util functions ---- */
@@ -190,15 +190,10 @@
     /* ---- Insert text event ---- */
 
     /**
-     * Event listener for inserting text to inputText textarea.
-     * @param {Event} event event
-     * @this {HTMLAnchorElement}
-     * @return {boolean} return false
+     * Insert text to inputText textarea.
+     * @param {string} insertedText inserted text
      */
-    function insertText(event) {
-        var insertTextLink = this;
-        var insertedText = insertTextLink.getAttribute('data-insert-value');
-
+    function insertText(insertedText) {
         var inputTextarea = document.querySelector('form#input [name=inputText]');
         var inputText = inputTextarea.value;
         var inputTextBefore = inputText.slice(0, inputTextarea.selectionStart);
@@ -210,9 +205,36 @@
         inputTextarea.setSelectionRange(insertedEnd, insertedEnd);
 
         generateQr();
+    }
+
+    /**
+     * Event listener for inserting text to inputText textarea.
+     * @param {Event} event event
+     * @this {HTMLAnchorElement}
+     * @return {boolean} return false
+     */
+    function insertTextEvent(event) {
+        var insertTextLink = this;
+        var insertedText = insertTextLink.getAttribute('data-insert-value');
+
+        insertText(insertedText);
+
+        generateQr();
 
         event.preventDefault();
         return false;
+    }
+
+    /**
+     * Insert URL to inputText textarea.
+     */
+    function insertUrl() {
+        var insertUrlTextLink = document.querySelector('.insert-text[data-insert-type=url]');
+        var insertedText = insertUrlTextLink.getAttribute('data-insert-value');
+
+        insertText(insertedText);
+
+        generateQr();
     }
 
     /**
@@ -263,6 +285,8 @@
     window.addEventListener('load', function () {
         i18nUtil.substituteAllElementsAndTextNodes(document);
 
+        setTextInsertValue(insertUrl);
+
         var inputForm = document.querySelector('form#input');
 
         // generateQr
@@ -287,7 +311,7 @@
         ['click'].forEach(function (event) {
             var elements = inputForm.querySelectorAll('.insert-text');
             for (var i = 0; i < elements.length; i++) {
-                elements[i].addEventListener(event, insertText);
+                elements[i].addEventListener(event, insertTextEvent);
             }
         });
 
@@ -305,4 +329,4 @@
         generateQr();
     });
 
-})(qrcodegen, i18nUtil);
+})(qrcodegen, i18nUtil, setTextInsertValue);
