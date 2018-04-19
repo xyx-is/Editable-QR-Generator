@@ -4,6 +4,18 @@
     "description": "ブラウザー拡張の説明"
   },
 
+  "popupHtmlHeaderLinksHelp": {
+    "message": "ヘルプ",
+    "description": "popup.html .header-links a.help's label"
+  },
+  "popupHtmlHeaderLinksOpenThisPage": {
+    "message": "このページを新しいタブで開く",
+    "description": "popup.html .header-links a.open-this-page's label"
+  },
+  "popupHtmlFormInputTextLabel": {
+    "message": "ここにテキストを入力してください:",
+    "description": "popup.html form textarea[name=inputText]'s label"
+  },
   "popupHtmlFormInputTextPlaceholder": {
     "message": "ここにテキストを入力してください",
     "description": "popup.html form textarea[name=inputText]'s placeholder"

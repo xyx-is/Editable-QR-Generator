@@ -7,6 +7,12 @@ body {
     margin: 5px;
 }
 
+.header-links {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
 textarea {
     width: 100%;
     box-sizing: border-box;

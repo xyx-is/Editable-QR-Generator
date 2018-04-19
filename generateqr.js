@@ -229,6 +229,8 @@
      * Insert URL to inputText textarea.
      */
     function insertUrl() {
+        var inputTextarea = document.querySelector('form#input [name=inputText]');
+        var inputText = inputTextarea.value;
         var insertUrlTextLink = document.querySelector('.insert-text[data-insert-type=url]');
         var insertedText = insertUrlTextLink.getAttribute('data-insert-value');
 
@@ -247,11 +249,53 @@
         return false;
     }
 
+    /* ---- Open this page in new tab event ---- */
+
+    /**
+     * Event listener for opening QR Code in new tab.
+     * @param {Event} event event
+     * @return {boolean} event event
+     */
+    function openThisPage(event) {
+        var input = getInputValues();
+        var inputForm = document.querySelector('form#input');
+
+        var copiedWindow = window.open(window.location.href, '_blank');
+        copiedWindow.addEventListener('load', function () {
+            var copiedInputForm = copiedWindow.document.querySelector('form#input');
+
+            copiedInputForm.querySelector('[name=inputText]').value = input.inputText;
+            copiedInputForm.querySelector('[name=eccAuto]').checked = input.eccAuto;
+            copiedInputForm.querySelector('[name=ecc][value=L]').checked = inputForm.querySelector('[name=ecc][value=L]').checked;
+            copiedInputForm.querySelector('[name=ecc][value=M]').checked = inputForm.querySelector('[name=ecc][value=M]').checked;
+            copiedInputForm.querySelector('[name=ecc][value=Q]').checked = inputForm.querySelector('[name=ecc][value=Q]').checked;
+            copiedInputForm.querySelector('[name=ecc][value=H]').checked = inputForm.querySelector('[name=ecc][value=H]').checked;
+
+            copiedInputForm.querySelector('[name=margin]').value = input.margin;
+            copiedInputForm.querySelector('[name=scale]').value = input.scale;
+            copiedInputForm.querySelector('[name=minVersion]').value = input.minVersion;
+            copiedInputForm.querySelector('[name=mask]').value = input.mask;
+
+            copiedWindow.document.querySelector('.insert-text[data-insert-type=url]').
+                setAttribute('data-insert-value', document.querySelector('.insert-text[data-insert-type=url]').getAttribute('data-insert-value'));
+            copiedWindow.document.querySelector('.insert-text[data-insert-type=url]').
+                setAttribute('title', document.querySelector('.insert-text[data-insert-type=url]').getAttribute('title'));
+            copiedWindow.document.querySelector('.insert-text[data-insert-type=title]').
+                setAttribute('data-insert-value', document.querySelector('.insert-text[data-insert-type=title]').getAttribute('data-insert-value'));
+            copiedWindow.document.querySelector('.insert-text[data-insert-type=title]').
+                setAttribute('title', document.querySelector('.insert-text[data-insert-type=title]').getAttribute('title'));
+        });
+
+        event.preventDefault();
+        return false;
+    }
+
     /* ---- Open QR Code in new tab event ---- */
 
     /**
      * Event listener for opening QR Code in new tab.
      * @param {Event} event event
+     * @return {boolean} event event
      */
     function openQr(event) {
         var canvas = document.querySelector('canvas#qrcode');
@@ -278,6 +322,9 @@
         var newTextarea = newWindow.document.createElement('textarea');
         newTextarea.value = inputTextarea.value;
         newDiv.appendChild(newTextarea);
+
+        event.preventDefault();
+        return false;
     }
 
     /* ---- Set events ---- */
@@ -285,7 +332,9 @@
     window.addEventListener('load', function () {
         i18nUtil.substituteAllElementsAndTextNodes(document);
 
-        setTextInsertValue(insertUrl);
+        if (!document.querySelector('.insert-text[data-insert-type=url]').getAttribute('data-insert-value')) {
+            setTextInsertValue(insertUrl);
+        }
 
         var inputForm = document.querySelector('form#input');
 
@@ -321,6 +370,9 @@
                 elements[i].addEventListener(event, preventDefaultEvent);
             }
         });
+
+        // open this page in new tab
+        document.querySelector('.open-this-page').addEventListener('click', openThisPage);
 
         // open QR Code in new tab
         document.querySelector('.open-qrcode').addEventListener('click', openQr);

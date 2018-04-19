@@ -4,6 +4,18 @@
     "description": "Extension description"
   },
 
+  "popupHtmlHeaderLinksHelp": {
+    "message": "Help",
+    "description": "popup.html .header-links a.help's label"
+  },
+  "popupHtmlHeaderLinksOpenThisPage": {
+    "message": "Open this page in new tab",
+    "description": "popup.html .header-links a.open-this-page's label"
+  },
+  "popupHtmlFormInputTextLabel": {
+    "message": "Input text here:",
+    "description": "popup.html form textarea[name=inputText]'s label"
+  },
   "popupHtmlFormInputTextPlaceholder": {
     "message": "Input text here",
     "description": "popup.html form textarea[name=inputText]'s placeholder"
