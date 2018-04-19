@@ -1,5 +1,5 @@
 /**
- * @fileoverview Create QR Code from input values.
+ * @fileoverview Util for i18n.
  */
 
 var i18nUtil = (function (qrcodegen, browser) {
