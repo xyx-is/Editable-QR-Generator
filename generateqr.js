@@ -233,11 +233,29 @@
      */
     function openQr(event) {
         var canvas = document.querySelector('canvas#qrcode');
+        var inputTextarea = document.querySelector('form#input [name=inputText]');
 
         var newWindow = window.open();
+
+        var newStyle = newWindow.document.createElement('style');
+        newWindow.document.head.appendChild(newStyle);
+        newStyle.innerHTML =
+            'body { background-color: gray; }\n' +
+            '.Image { top:0; bottom: 0; left: 0; right: 0; position: absolute; margin: auto; }\n' +
+            '.Image img { display: block; margin: 5px auto 5px auto; }\n' +
+            '.Image textarea { display: block; width: 50%; max-height: 30%; margin-left: auto; margin-right: auto; }\n';
+
+        var newDiv = newWindow.document.createElement('div');
+        newDiv.classList.add('Image');
+        newWindow.document.body.appendChild(newDiv);
+
         var newImg = newWindow.document.createElement('img');
         newImg.src = canvas.toDataURL();
-        newWindow.document.body.appendChild(newImg);
+        newDiv.appendChild(newImg);
+
+        var newTextarea = newWindow.document.createElement('textarea');
+        newTextarea.value = inputTextarea.value;
+        newDiv.appendChild(newTextarea);
     }
 
     /* ---- Set events ---- */
