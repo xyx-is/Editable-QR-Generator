@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>ヘルプ</title>
+</head>
+
+<body>
+    <h1>Editable QR Generator</h1>
+
+    <p>ダウンロードしていただきありがとうございます。このアドオンは、好きな文字列からQRコードをオフラインで生成できるWeb extensionのアドオンです。</p>
+
+    <h2>特徴</h2>
+
+    <ul>
+        <li>編集可能: 好きな文字列からQRコードを生成できます。</li>
+
+        <li>設定可能: 誤り訂正レベル、サイズ、マスクパターンなど、各種パラメータを設定可能です。</li>
+
+        <li>オフライン: 一切外部との通信を行わず、ローカルのJavaScriptで動作します。</li>
+
+        <li>最小限の権限: "activeTab"権限(パーミッション)を、開いたページのURLとタイトルの取得のためのみに使用しています。</li>
+
+        <li>Open Source: ソースコードはこちら https://github.com/xyx-is/Editable-QR-Generator</li>
+
+        <li>UTF-8 エンコーディングをサポートしています。</li>
+    </ul>
+
+    <h2>使い方</h2>
+
+    <a href="initial.png"><img src="initial.png" height="256" alt="初期画面" title="初期画面" /></a>
+    <a href="textedit.png"><img src="textedit.png" height="256" alt="テキストエリアの編集" title="テキストエリアの編集" /></a>
+
+    <p>
+        このアドオンをインストールすると、ツールバーボタンが追加されます。
+        ツールバーボタンをクリックするとポップアップが表示されるので、テキストボックスに文字列を入力してQRコードを生成してください。
+    </p>
+
+    <h3>現在のページのURLやタイトルを挿入する</h3>
+
+    <p>「テキスト挿入」欄のリンクをクリックすることで、テキストエリアに現在のページのURLやタイトルを挿入することができます。</p>
+
+    <h3>QRコード生成の設定</h3>
+
+    <a href="enlargeMinVersion.png"><img src="enlargeMinVersion.png" height="256" alt="最小バージョンサイズの拡大" title="最小バージョンサイズの拡大" /></a>
+    <p>
+        ポップアップのフォーム枠内の各種入力欄を設定することで、QRコード生成の設定をすることができます。
+        各設定欄の内容は、マウスオーバーしてツールチップを表示することで説明が表示されます。
+    </p>
+
+    <h3>QRコードの画像を新しいタブで開く</h3>
+
+    <a href="openImage.png"><img src="openImage.png" height="256" alt="新しいタブで画像を開く" title="新しいタブで画像を開く" /></a>
+    <p>
+        生成されたQRコードの画像をクリックすることで、新しいタブでQRコードの画像を開くことができます。
+        新しいタブに表示されたQRコードの画像を右クリックすれば、画像を保存することが可能です。
+        Firefoxの場合は、ポップアップ内のQRコードの画像を右クリックすることで、直接画像を保存することも可能です。
+    </p>
+
+    <h3>ポップアップを新しいタブで開く</h3>
+
+    <a href="openNewTab.png"><img src="openNewTab.png" height="256" alt="新しいタブで開く" title="新しいタブで開く" /></a>
+    <a href="openedNewTab.png"><img src="openedNewTab.png" height="256" alt="開かれた新しいタブ" title="開かれた新しいタブ" /></a>
+    <p>
+        ポップアップ画面のままではテキストエリアで編集が難しいことがあります。
+        「このページを新しいタブで開く」リンクをクリックすることで、現在開いているポップアップが新しいタブで表示されます。
+    </p>
+
+    <h2>License</h2>
+
+    <p>このプロジェクトのライセンスはMIT Licenseです。第三者ライブラリは下記を確認してください。</p>
+
+    <h2>第三者ライブラリ</h2>
+
+    <p>このプロジェクトは以下の第三者ライブラリを使用しています。</p>
+
+    <ul>
+        <li>
+            <a href="https://www.nayuki.io/page/qr-code-generator-library">QR Code generator library</a> by Project Nayuki
+
+            <ul>
+                <li>
+                    このプロジェクトは JavaScript library <a href="../../qrcodegen.js">qrcodegen.js</a> を以下からコピーしています:
+                    <a href="https://github.com/nayuki/QR-Code-generator/blob/5a5626edb27ebe230792654a3cc5c6dddde9defc/javascript/qrcodegen.js">https://github.com/nayuki/QR-Code-generator/blob/5a5626edb27ebe230792654a3cc5c6dddde9defc/javascript/qrcodegen.js</a>
+                </li>
+
+                <li>このファイルは MIT License でライセンスされています。Copyright term は上記ファイルの先頭に記載されています。</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2>Notice</h2>
+
+    <p>「QRコード」は(株)デンソーウェーブの登録商標です。</p>
+</body>
+</html>
