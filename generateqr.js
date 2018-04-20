@@ -237,6 +237,9 @@
         insertText(insertedText);
 
         generateQr();
+
+        inputTextarea.focus();
+        inputTextarea.setSelectionRange(0, inputTextarea.value.length);
     }
 
     /**

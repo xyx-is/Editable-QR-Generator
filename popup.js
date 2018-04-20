@@ -14,15 +14,19 @@ var setTextInsertValue = (function (callback) {
 
         // set page URL
         var pageUrl = tab.url;
-        var insertUrlTextLink = document.querySelector('.insert-text[data-insert-type=url]');
-        insertUrlTextLink.setAttribute('data-insert-value', pageUrl);
-        insertUrlTextLink.setAttribute('title', pageUrl);
+        if (pageUrl) {
+            var insertUrlTextLink = document.querySelector('.insert-text[data-insert-type=url]');
+            insertUrlTextLink.setAttribute('data-insert-value', pageUrl);
+            insertUrlTextLink.setAttribute('title', pageUrl);
+        }
 
         // set page title
         var pageTitle = tab.title;
-        var insertTitleTextLink = document.querySelector('.insert-text[data-insert-type=title]');
-        insertTitleTextLink.setAttribute('data-insert-value', pageTitle);
-        insertTitleTextLink.setAttribute('title', pageTitle);
+        if (pageTitle) {
+            var insertTitleTextLink = document.querySelector('.insert-text[data-insert-type=title]');
+            insertTitleTextLink.setAttribute('data-insert-value', pageTitle);
+            insertTitleTextLink.setAttribute('title', pageTitle);
+        }
 
         callback();
     }
