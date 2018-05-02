@@ -74,10 +74,19 @@ var i18nUtil = (function (qrcodegen, browser) {
     }
 
     /**
+     * Substitute html tag lang attribute.
+     */
+    function substituteHtmlLang() {
+        document.documentElement.lang = i18n.getUILanguage();
+    }
+
+    /**
      * Substitute for all elements and text nodes.
      * @param {Element} root root
      */
     function substituteAllElementsAndTextNodes(root) {
+        substituteHtmlLang();
+
         var treeWalker = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT);
         while (treeWalker.nextNode()) {
             substituteAttributesOfElement(treeWalker.currentNode);
