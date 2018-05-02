@@ -23,6 +23,7 @@ textarea {
 fieldset {
     padding-top: 2px;
     padding-bottom: 2px;
+    font-size: small;
 }
 
 input[type="number"] {
