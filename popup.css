@@ -34,6 +34,11 @@ input[type="number"] {
     width: 200px;
 }
 
+.results {
+    margin: 2px auto 2px auto;
+    text-align: center;
+}
+
 #qrcode {
     padding: 5px;
     background-color: #CCCCCC;
