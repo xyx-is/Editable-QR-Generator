@@ -19,36 +19,61 @@
 
         <li>オフライン: 一切外部との通信を行わず、ローカルのJavaScriptで動作します。</li>
 
-        <li>最小限の権限: "activeTab"権限(パーミッション)を、開いたページのURLとタイトルの取得のためのみに使用しています。</li>
+        <li>最小限の権限: このアドオンは、"activeTab"権限(パーミッション)しか使用していません。開いたページのURLとタイトルの取得のみに使用しています。<a href="../../manifest.json">manifest.json</a>をご確認ください。</li>
 
-        <li>Open Source: ソースコードはこちら <a href="https://github.com/xyx-is/Editable-QR-Generator">https://github.com/xyx-is/Editable-QR-Generator</a></li>
+        <li>Open Source: ソースコードはこちら <a href="https://github.com/xyx-is/Editable-QR-Generator">https://github.com/xyx-is/Editable-QR-Generator</a> 。プルリクエストお待ちしてます。</li>
 
-        <li>UTF-8 エンコーディングをサポートしています。</li>
+        <li>UTF-8: UTF-8 エンコーディングをサポートしているため、日本語や絵文字を使用できます。（Shift-JISエンコードは使用できません。）</li>
     </ul>
 
     <h2>使い方</h2>
-
-    <a href="initial.png"><img src="initial.png" height="256" alt="初期画面" title="初期画面" /></a>
-    <a href="textedit.png"><img src="textedit.png" height="256" alt="テキストエリアの編集" title="テキストエリアの編集" /></a>
 
     <p>
         このアドオンをインストールすると、ツールバーボタンが追加されます。
         ツールバーボタンをクリックするとポップアップが表示されるので、テキストボックスに文字列を入力してQRコードを生成してください。
     </p>
 
+    <a href="initial.gif"><img src="initial.gif" alt="初期画面" title="初期画面" /></a>
+    <a href="initial.png"><img src="initial.png" height="256" alt="初期画面" title="初期画面" /></a>
+    <a href="textedit.png"><img src="textedit.png" height="256" alt="テキストエリアの編集" title="テキストエリアの編集" /></a>
+
     <h3>現在のページのURLやタイトルを挿入する</h3>
 
     <p>「テキスト挿入」欄のリンクをクリックすることで、テキストエリアに現在のページのURLやタイトルを挿入することができます。</p>
+    <dl>
+        <dt>「ページURL」リンク</dt>
+        <dd>「テキスト挿入」欄に開いているページのURLを挿入します。</dd>
+        <dt>「ページタイトル」リンク</dt>
+        <dd>「テキスト挿入」欄に開いているページのタイトルを挿入します。</dd>
+    </dl>
 
     <h3>QRコード生成の設定</h3>
 
+    <a href="features.gif"><img src="features.gif" alt="各種機能の説明動画" title="各種機能の説明動画" /></a>
     <a href="enlargeMinVersion.png"><img src="enlargeMinVersion.png" height="256" alt="最小バージョンサイズの拡大" title="最小バージョンサイズの拡大" /></a>
+
     <p>
         ポップアップのフォーム枠内の各種入力欄を設定することで、QRコード生成の設定をすることができます。
         各設定欄の内容は、マウスオーバーしてツールチップを表示することで説明が表示されます。
     </p>
 
-    <h3>QRコードの画像を新しいタブで開く</h3>
+    <dl>
+        <dt>誤り訂正レベル</dt>
+        <dd>
+            誤り訂正レベルを L(Low), M(Medium), Q(Quartile), H(High) から選択します。
+            「自動」にチェックを入れている場合は、QRコードが大きくならない範囲で自動的に誤り訂正レベルを引き上げます。
+        </dd>
+        <dt>余白</dt>
+        <dd>余白のサイズをセルの数で指定します。デフォルトは4です。</dd>
+        <dt>セルの大きさ</dt>
+        <dd>セルの大きさをピクセルで指定します。</dd>
+        <dt>最小バージョンサイズ</dt>
+        <dd>QRコードのバージョンのサイズの最小値を指定します。QRコードのバージョンとは、QRコードのセルの数を表す指標で、バージョンが大きいほどQRコードのセルの数が多くなります。QRコードのバージョンの範囲は、1から40までです。</dd>
+        <dt>マスク</dt>
+        <dd>QRコードのマスクのパターンを、自動で指定させるか、0から7の範囲で指定します。</dd>
+    </dl>
+
+    <h3>QRコードの画像を新しいタブで開く・保存する</h3>
 
     <a href="openImage.png"><img src="openImage.png" height="256" alt="新しいタブで画像を開く" title="新しいタブで画像を開く" /></a>
     <p>
@@ -59,12 +84,18 @@
 
     <h3>ポップアップを新しいタブで開く</h3>
 
+    <a href="openInNewTab.gif"><img src="openInNewTab.gif" height="480" alt="新しいタブで開く" title="新しいタブで開く" /></a>
     <a href="openNewTab.png"><img src="openNewTab.png" height="256" alt="新しいタブで開く" title="新しいタブで開く" /></a>
     <a href="openedNewTab.png"><img src="openedNewTab.png" height="256" alt="開かれた新しいタブ" title="開かれた新しいタブ" /></a>
+
     <p>
-        ポップアップ画面のままではテキストエリアで編集が難しいことがあります。
+        ポップアップ画面でEscキーを押すと閉じてしまうなど、ポップアップ画面のままではテキストエリアで編集が難しいことがあります。
         「このページを新しいタブで開く」リンクをクリックすることで、現在開いているポップアップが新しいタブで表示されます。
     </p>
+
+    <h2>バグの報告</h2>
+
+    <p>バグの報告を検討していただきありがとうございます。このアドオンは、<a href="https://github.com/xyx-is/Editable-QR-Generator">GitHub</a>で開発しています。バグの報告は、<a href="https://github.com/xyx-is/Editable-QR-Generator/issues">GitHubのIssues</a>にご報告ください。よろしくお願いいたします。</p>
 
     <h2>License</h2>
 
@@ -84,7 +115,7 @@
                     <a href="https://github.com/nayuki/QR-Code-generator/blob/5a5626edb27ebe230792654a3cc5c6dddde9defc/javascript/qrcodegen.js">https://github.com/nayuki/QR-Code-generator/blob/5a5626edb27ebe230792654a3cc5c6dddde9defc/javascript/qrcodegen.js</a>
                 </li>
 
-                <li>このファイルは MIT License でライセンスされています。Copyright term は上記ファイルの先頭に記載されています。</li>
+                <li>ドキュメントが整備された、使いやすいQRコード生成ライブラリです。このファイルは MIT License でライセンスされています。Copyright term は上記ファイルの先頭に記載されています。</li>
             </ul>
         </li>
     </ul>

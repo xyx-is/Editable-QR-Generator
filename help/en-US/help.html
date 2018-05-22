@@ -16,40 +16,65 @@
     <h2>Features</h2>
 
     <ul>
-        <li>Editable: can generate QR Code from any text.</li>
+        <li>Editable: You can generate QR Code from any text.</li>
 
-        <li>Configurable: can configure error correction level, size, and mask pattern etc.</li>
+        <li>Configurable: You can configure error correction level, size, and mask pattern etc.</li>
 
-        <li>Offline: QR Code is generated offline.</li>
+        <li>Offline: QR Code is generated offline. This addon never generates web connection.</li>
 
-        <li>Minimal permissions: only requires "activeTab" permissions to get the URL and the title of the current page.</li>
+        <li>Minimal permissions: This addon only requires "activeTab" permissions to get the URL and the title of the current page. Please verify the <a href="../../manifest.json">manifest.json</a>.</li>
 
-        <li>Open Source: Source code is hosted at <a href="https://github.com/xyx-is/Editable-QR-Generator">https://github.com/xyx-is/Editable-QR-Generator</a></li>
+        <li>Open Source: Source code is hosted at <a href="https://github.com/xyx-is/Editable-QR-Generator">https://github.com/xyx-is/Editable-QR-Generator</a>. Your contribution is welcome.</li>
 
-        <li>Support UTF-8 encoding.</li>
+        <li>UTF-8: Support UTF-8 encoding. This means you can use multibyte characters, Emoji etc.</li>
     </ul>
 
     <h2>Usage</h2>
-
-    <a href="initial.png"><img src="initial.png" height="256" alt="Initial popup" title="Initial popup" /></a>
-    <a href="textedit.png"><img src="textedit.png" height="256" alt="Editing textarea" title="Editing textarea" /></a>
 
     <p>
         This addon creates a toolbar button with a popup page.
         You can generate QR Code by entering any text in the textarea on the head of the popup.
     </p>
 
+    <a href="initial.gif"><img src="initial.gif" alt="Initial popup gif" title="Initial popup gif" /></a>
+    <a href="initial.png"><img src="initial.png" height="256" alt="Initial popup" title="Initial popup" /></a>
+    <a href="textedit.png"><img src="textedit.png" height="256" alt="Editing textarea" title="Editing textarea" /></a>
+
     <h3>Insert the URL and the title of the current page</h3>
 
     <p>By clicking the links beside "Insert page", you can insert the URL and the title of the current page into the textarea.</p>
+    <dl>
+        <dt>"Page URL" link</dt>
+        <dd>Insert opening page URL into the textarea.</dd>
+        <dt>"Page Title" link</dt>
+        <dd>Insert opening page title into the textarea.</dd>
+    </dl>
 
     <h3>Configure QR Code setting</h3>
 
+    <a href="features.gif"><img src="features.gif" alt="Animation of features" title="Animation of features" /></a>
     <a href="enlargeMinVersion.png"><img src="enlargeMinVersion.png" height="256" alt="Enlarge the minVersion size" title="Enlarge the minVersion size" /></a>
+
     <p>
         By changing form inputs in the fieldset middle of the popup, you can Configure QR Code setting.
         You can check the description in the tooltips of the form inputs.
     </p>
+
+    <dl>
+        <dt>Error correction</dt>
+        <dd>
+            You can select error correction level from L(Low), M(Medium), Q(Quartile), and H(High).
+            If you check "Auto" checkbox, error correction level is automatically boosted unless it increases QR Code size.
+        </dd>
+        <dt>Margin</dt>
+        <dd>You can set margin cell size. default is 4.</dd>
+        <dt>Cell size</dt>
+        <dd>You can set cell size in pixels.</dd>
+        <dt>Min version</dt>
+        <dd>You can set minimum version size of QR code. QR code with larger version size has more cells. QR code version size varies from 1 to 40.</dd>
+        <dt>Mask</dt>
+        <dd>You can select the mask pattern.</dd>
+    </dl>
 
     <h3>Open QR Code in a new tab and save</h3>
 
@@ -63,15 +88,21 @@
 
     <h3>Open popup in new tab</h3>
 
+    <a href="openInNewTab.gif"><img src="openInNewTab.gif" height="480" alt="Open the popup in new tab" title="Open the popup in new tab" /></a>
     <a href="openNewTab.png"><img src="openNewTab.png" height="256" alt="Open the popup in new tab" title="Open the popup in new tab" /></a>
     <a href="openedNewTab.png"><img src="openedNewTab.png" height="256" alt="Opened tab" title="Opened tab" /></a>
+
     <p>If you feel it is difficult to edit in the popup, click the 'Open this page in new tab' to open the popup in a new tab.</p>
+
+    <h2>Bug Report</h2>
+
+    <p>This addon is maintained at <a href="https://github.com/xyx-is/Editable-QR-Generator">GitHub</a>. Please report bug at <a href="https://github.com/xyx-is/Editable-QR-Generator/issues">Issues</a>. Thank you.</p>
 
     <h2>License</h2>
 
     <p>MIT License. Third-party libraries are listed below.</p>
 
-    <h2>Third-party libraries</h2>
+    <h3>Third-party libraries</h3>
 
     <p>This project uses following Third-party libraries.</p>
 
@@ -85,7 +116,7 @@
                     <a href="https://github.com/nayuki/QR-Code-generator/blob/5a5626edb27ebe230792654a3cc5c6dddde9defc/javascript/qrcodegen.js">https://github.com/nayuki/QR-Code-generator/blob/5a5626edb27ebe230792654a3cc5c6dddde9defc/javascript/qrcodegen.js</a>
                 </li>
 
-                <li>This library is licensed under MIT License and the copyright term is in the head of the file.</li>
+                <li>This is well-documented, easy to use QR code generation library. This library is licensed under MIT License and the copyright term is in the head of the file.</li>
             </ul>
         </li>
     </ul>
