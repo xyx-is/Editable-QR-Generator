@@ -12,7 +12,7 @@ Editable and configurable offline QR Code generator Web extension addon.
 - UTF-8: Support UTF-8 encoding. This means you can use multibyte characters, Emoji etc. (Thanks to Project Nayuki)
 
 ## Usage
-[<img align="right" src="./help/en-US/initial.gif" alt="Initial popup gif" />](./help/en-US/initial.gif)
+[<img src="./help/en-US/initial.gif" alt="Initial popup gif" />](./help/en-US/initial.gif)
 
 This addon creates a toolbar button with a popup page.
 You can generate QR Code by entering any text in the textarea on the head of the popup.
@@ -21,7 +21,7 @@ You can generate QR Code by entering any text in the textarea on the head of the
 By clicking the links beside "Insert page", you can insert the URL and the title of the current page into the textarea.
 
 ### Configure QR Code setting
-[<img align="right" src="./help/en-US/features.gif" alt="features" />](./help/en-US/features.gif)
+[<img src="./help/en-US/features.gif" alt="features" />](./help/en-US/features.gif)
 
 By changing form inputs in the fieldset middle of the popup, you can Configure QR Code setting.
 You can check the description in the tooltips of the form inputs.
@@ -33,7 +33,7 @@ You can save the QR Code in the new tab.
 Also, if you are using Firefox, you can directly save the QR Code image by right clicking the the QR Code canvas.
 
 ### Open popup in new tab
-[<img align="right" src="./help/en-US/openInNewTab.gif" alt="Open the popup in new tab" />](./help/en-US/openInNewTab.gif)
+[<img src="./help/en-US/openInNewTab.gif" alt="Open the popup in new tab" />](./help/en-US/openInNewTab.gif)
 
 If you feel it is difficult to edit in the popup, click the 'Open this page in new tab' to open the popup in a new tab.
 
