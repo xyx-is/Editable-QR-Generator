@@ -44,7 +44,7 @@ MIT License. See [LICENSE](LICENSE) file for the license of this project itself.
 This project uses following Third-party libraries.
 
 - [QR Code generator library](https://www.nayuki.io/page/qr-code-generator-library) by Project Nayuki
-	- This project retrieved JavaScript library [qrcodegen.js](qrcodegen.js) from https://github.com/nayuki/QR-Code-generator/blob/5a5626edb27ebe230792654a3cc5c6dddde9defc/javascript/qrcodegen.js
+	- This project retrieved JavaScript library [qrcodegen.js](qrcodegen.js) from https://github.com/nayuki/QR-Code-generator/blob/693304b8c38747f971ed0bdf91b1023fda4638dd/javascript/qrcodegen.js
 	- This library is licensed under MIT License and the copyright term is in the head of the file.
 
 ## Notice
