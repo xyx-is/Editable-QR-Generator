@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Editable QR Generator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "__MSG_extensionDescription__",
   "homepage_url": "https://github.com/xyx-is/Editable-QR-Generator",
   "icons": {
