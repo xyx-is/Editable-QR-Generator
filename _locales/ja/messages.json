@@ -102,6 +102,11 @@
     "description": "popup.html a.open-qrcode's title"
   },
 
+  "confirmLargeSizeImageToContinue": {
+    "message": "生成される画像サイズが大きすぎます。大きすぎる画像はメモリを大量に消費し、ブラウザがフリーズする場合があります。\n本当に続行しますか？",
+    "description": "生成される画像サイズが大きい時に表示されるconfirmメッセージボックスの表示文字列"
+  },
+
   "errorDescriptionLabel": {
     "message": "エラー: $error$",
     "description": "エラーの説明のラベル",
@@ -111,6 +116,10 @@
         "example": "Invalid value"
       }
     }
+  },
+  "errorUserCanceledLargeImage": {
+    "message": "大きすぎる画像の作成が中止されました。余白とセルの大きさにより小さい値を指定してください。",
+    "description": "ユーザが confirmLargeSizeImageToContinue メッセージボックスでキャンセルを押したときに発生するエラーのメッセージ"
   },
 
   "statsVersionLabel": {

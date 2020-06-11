@@ -4,6 +4,17 @@
 (function (qrcodegen, i18nUtil, setTextInsertValue) {
     'use strict';
 
+    /* ---- Constants ---- */
+
+
+    /**
+     * Show warning message box if a user trys to generate large image exceeds this width.
+     * @constant
+     * @type {number}
+     * @default
+     */
+    var LargeSizeImageWarningWidthThreshold = 8192;
+
     /* ---- Util functions ---- */
 
     /**
@@ -103,7 +114,7 @@
         return version * 4 + 17;
     }
 
-    /* ---- Get input values ---- */
+    /* ---- Get and set input values ---- */
 
     /**
      * Get input values from the from in the HTML.
@@ -121,6 +132,34 @@
         result.minVersion = parseInt(inputForm.querySelector('[name=minVersion]').value, 10);
         result.mask = parseInt(inputForm.querySelector('[name=mask]').value, 10);
         return result;
+    }
+
+     /**
+      * @description Set margin and scale input values to the from in the HTML.
+      * @param {Object} values
+      */
+    function setMarginAndScaleInputValues(values) {
+        var inputForm = document.querySelector("form#input");
+
+        inputForm.querySelector("[name=margin]").value = values.margin;
+        inputForm.querySelector("[name=scale]").value = values.scale;
+    }
+
+    /**
+     * @description Compare two input values
+     * @param {Object} inputValues1
+     * @param {Object} inputValues2
+     * @returns {boolean}
+     */
+    function equalsForInputValues(inputValues1, inputValues2) {
+        var keys = Object.keys(inputValues1);
+        for (let i = 0; i < keys.length; i++) {
+            const key = keys[i];
+            if(inputValues1[key] !== inputValues2[key]){
+                return false;
+            }
+        }
+        return true;
     }
 
     /* ---- Generate QR Code ---- */
@@ -158,13 +197,20 @@
         statDiv.appendChild(miscSpan);
     }
 
+
+    var previousInputValues = undefined;
+
     /**
      * Generate QR Code to canvas.
+     * @param {boolean} initialGeneration true if it is initial generation
      */
-    function generateQr() {
+    function generateQr(initialGeneration) {
         var canvas = document.querySelector('canvas#qrcode');
         var statDiv = document.querySelector('#stat');
         var input = getInputValues();
+        if((!initialGeneration) && equalsForInputValues(input, previousInputValues)){
+            return;
+        }
 
         canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
         clearElement(statDiv);
@@ -173,8 +219,16 @@
         try {
             var segs = qrcodegen.QrSegment.makeSegments(input.inputText);
             var qr = qrcodegen.QrCode.encodeSegments(segs, input.ecc, input.minVersion, qrcodegen.QrCode.MAX_VERSION, input.mask, input.eccAuto);
+
+            var width = (getCellSizeOfVersion(qr.version) + input.margin * 2) * input.scale;
+            if (LargeSizeImageWarningWidthThreshold < width && !window.confirm(i18nUtil.i18n.getMessage("confirmLargeSizeImageToContinue"))) {
+                setMarginAndScaleInputValues(previousInputValues);
+                throw i18nUtil.i18n.getMessage("errorUserCanceledLargeImage");
+            }
+
             qr.drawCanvas(input.scale, input.margin, canvas);
             setStats(statDiv, canvas, input, segs, qr);
+            previousInputValues = input;
         } catch (e) {
             // reset canvas
             canvas.width = canvas.height = 100;
@@ -333,6 +387,10 @@
     /* ---- Set events ---- */
 
     window.addEventListener('load', function () {
+        var eventListenerGenerateQr = function (event) {
+            generateQr();
+        };
+
         i18nUtil.substituteAllElementsAndTextNodes(document);
 
         if (!document.querySelector('.insert-text[data-insert-type=url]').getAttribute('data-insert-value')) {
@@ -341,22 +399,22 @@
 
         var inputForm = document.querySelector('form#input');
 
-        // generateQr
+        // eventListenerGenerateQr
         ['propertychange', 'change', 'keyup', 'paste', 'input'].forEach(function (event) {
-            inputForm.querySelector('[name=inputText]').addEventListener(event, generateQr);
-            inputForm.querySelector('[name=margin]').addEventListener(event, generateQr);
-            inputForm.querySelector('[name=scale]').addEventListener(event, generateQr);
-            inputForm.querySelector('[name=minVersion]').addEventListener(event, generateQr);
+            inputForm.querySelector('[name=inputText]').addEventListener(event, eventListenerGenerateQr);
+            inputForm.querySelector('[name=margin]').addEventListener(event, eventListenerGenerateQr);
+            inputForm.querySelector('[name=scale]').addEventListener(event, eventListenerGenerateQr);
+            inputForm.querySelector('[name=minVersion]').addEventListener(event, eventListenerGenerateQr);
         });
         ['propertychange', 'click', 'change'].forEach(function (event) {
-            inputForm.querySelector('[name=eccAuto]').addEventListener(event, generateQr);
+            inputForm.querySelector('[name=eccAuto]').addEventListener(event, eventListenerGenerateQr);
             var elements = inputForm.querySelectorAll('[name=ecc]');
             for (var i = 0; i < elements.length; i++) {
-                elements[i].addEventListener(event, generateQr);
+                elements[i].addEventListener(event, eventListenerGenerateQr);
             }
         });
         ['propertychange', 'change', 'keyup', 'click'].forEach(function (event) {
-            inputForm.querySelector('[name=mask]').addEventListener(event, generateQr);
+            inputForm.querySelector('[name=mask]').addEventListener(event, eventListenerGenerateQr);
         });
 
         // insert text event
@@ -380,8 +438,10 @@
         // open QR Code in new tab
         document.querySelector('.open-qrcode').addEventListener('click', openQr);
 
+        previousInputValues = getInputValues();
+
         // Initial load
-        generateQr();
+        generateQr(true);
     });
 
 })(qrcodegen, i18nUtil, setTextInsertValue);

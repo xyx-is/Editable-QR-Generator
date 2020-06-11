@@ -102,6 +102,11 @@
     "description": "popup.html a.open-qrcode's title"
   },
 
+  "confirmLargeSizeImageToContinue": {
+    "message": "Generated image size is too large. Too large size image may use a huge amount of memory and make the browser non-responsive.\nAre you sure to continue?",
+    "description": "Text of the confirm message box which appears when an user trys to make large width image"
+  },
+
   "errorDescriptionLabel": {
     "message": "Error: $error$",
     "description": "Label of error",
@@ -111,6 +116,10 @@
         "example": "Invalid value"
       }
     }
+  },
+  "errorUserCanceledLargeImage": {
+    "message": "Large size image generation canceled. Please use smaller size of margin and cell size.",
+    "description": "Error message when an user canceled confirmLargeSizeImageToContinue confirm message box."
   },
 
   "statsVersionLabel": {
